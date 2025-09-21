@@ -1,11 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import HeroImg from "../images/Hero.png"; // replace with your actual hero image path
-
-import DownArrow from "../images/V.png"; // replace with your downloaded arrow image path
-import DownArrow1 from "@/images/V1.png"; // replace with your downloaded arrow image path
-import DownArrow2 from "@/images/V2.png"; // replace with your downloaded arrow image path
+import HeroImg from "../images/Hero.png";
+import DownArrow from "../images/V.png";
+import DownArrow1 from "@/images/V1.png";
+import DownArrow2 from "@/images/V2.png";
 
 const Hero = () => {
   return (

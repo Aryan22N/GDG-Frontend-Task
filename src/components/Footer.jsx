@@ -38,11 +38,11 @@ const Footer = () => {
         </div>
 
         {/* Right Section */}
-        <div className="flex flex-col gap-8 text-center md:text-left items-center md:items-start">
+        <div className="flex flex-col gap-8 mt-[20px] text-center md:text-left items-center md:items-start">
           {/* Location */}
-          <div className="flex items-start gap-3 max-w-md">
+          <div className="flex items-start gap-3 max-w-xl sm:max-w-2xl lg:max-w-3xl">
             <MdOutlineLocationOn className="text-black w-6 h-6 sm:w-7 sm:h-7 mt-1 flex-shrink-0" />
-            <p className="text-gray-700 text-sm sm:text-base">
+            <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
               Shri Ramdeobaba College of Engineering and Management, <br />
               Ramdeo Tekdi, Gittikhadan, Katol Road, Nagpur - 440013
             </p>
