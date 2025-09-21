@@ -5,6 +5,7 @@ import Ourperspective from "../components/Ourperspective";
 import Footer from "../components/Footer";
 import FAQ from "../components/Faq";
 import Technologies from "../components/Technologies";
+import Stats from "../components/Stats";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Ourmission />
       <Ourperspective />
       <Ourmission />
+      <Stats />
       <Technologies />
       <FAQ />
       <Footer />

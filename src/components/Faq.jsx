@@ -44,16 +44,16 @@ const FaqSection = () => {
 
   return (
     <section className="py-16 bg-white">
-      <div className="container mx-auto px-4 max-w-2xl">
-        <h2 className="text-5xl font-bold text-center text-[#5F5F5F] mb-12">
+      <div className="container mx-auto px-4 mb-17  max-w-2xl">
+        <h2 className="text-5xl font-bold text-center text-[#5F5F5F] mb-19">
           FAQs
         </h2>
-        <div className="space-y-6">
+        <div className="space-y-12">
           {faqData.map((item, index) => (
             <div key={index}>
               {/* Question */}
               <div
-                className="flex gap-4 items-center p-6 cursor-pointer bg-white rounded-full shadow-lg border border-gray-200"
+                className="flex gap-4 items-center p-6 cursor-pointer bg-white rounded-full shadow-lg border-[12px] border-gray-200"
                 onClick={() => toggleFaq(index)}
               >
                 <FaChevronDown
@@ -83,9 +83,9 @@ const FaqSection = () => {
                   {/* Answer box with colored border */}
                   <div
                     style={{ borderLeftColor: item.color }}
-                    className="p-6 shadow-md bg-gray-50 border-l-4 rounded-r-2xl flex-1"
+                    className="p-6 shadow-md bg-white  border-[12px] border-l-4 rounded-r-2xl flex-1"
                   >
-                    <p className="text-gray-600">{item.answer}</p>
+                    <p className=" text-[19px] text-[#5F5F5F]">{item.answer}</p>
                   </div>
                 </div>
               </div>

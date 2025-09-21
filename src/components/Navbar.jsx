@@ -5,6 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/images/Gdglogo.svg";
+import sun from "../images/sun.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,8 +15,8 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="bg-white shadow-lg border-b-[4px] border-gray-300 px-4 py-3  ">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
+    <nav className="bg-white shadow-lg border-b-[4px] border-gray-300 px-4 py-3">
+      <div className="max-w-[1680px] mx-auto flex justify-between items-center">
         {/* Logo + Title */}
         <div className="flex items-center space-x-2">
           <Image
@@ -24,77 +25,43 @@ const Navbar = () => {
             width={75}
             height={35}
             priority
-            className="w-[60px] h-auto md:w-[75px]" // shrink logo on small screens
+            className="w-[60px] h-auto md:w-[75px]"
           />
-          <span className="font-semibold text-gray-800 text-base sm:text-lg md:text-xl">
+          <span className="font-light text-[#868686] text-base sm:text-lg md:text-[21.88px]">
             GDG RCOEM
           </span>
         </div>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-6">
-          <ul className="flex space-x-6">
-            <li>
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-blue-500 font-medium"
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/events"
-                className="text-gray-600 hover:text-blue-500 font-medium"
-              >
-                Events
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/team"
-                className="text-gray-600 hover:text-blue-500 font-medium"
-              >
-                Team
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/alumni"
-                className="text-gray-600 hover:text-blue-500 font-medium"
-              >
-                Alumni
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/contact"
-                className="text-gray-600 hover:text-blue-500 font-medium"
-              >
-                Contact
-              </Link>
-            </li>
+          <ul className="flex text-[25px] space-x-10">
+            {["Home", "Events", "Team", "Alumni", "Contact"].map((link) => (
+              <li key={link}>
+                <Link
+                  href={link === "Home" ? "/" : `/${link.toLowerCase()}`}
+                  className="text-[#868686] hover:text-blue-500 font-medium"
+                >
+                  {link}
+                </Link>
+              </li>
+            ))}
           </ul>
 
           {/* Toggle Switch */}
-          <div className="flex items-center">
-            <label
-              htmlFor="switch"
-              className="relative inline-flex items-center cursor-pointer"
-            >
+          <div className="ml-6">
+            <label className="relative inline-flex items-center cursor-pointer">
               <input
                 type="checkbox"
-                id="switch"
                 className="sr-only peer"
                 checked={isToggled}
                 onChange={toggleSwitch}
               />
-              <div
-                className="relative w-11 h-6 bg-gray-200 rounded-full peer
-                peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-[2px] after:left-[2px] 
-                after:bg-white after:border-gray-300 after:border after:rounded-full 
-                after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"
-              ></div>
+              {/* Background */}
+              <div className="w-[90px] h-[36px] bg-gray-300 rounded-full transition-colors peer-checked:bg-blue-600"></div>
+              {/* Circle */}
+              <div className="absolute top-[3px] left-[3px] w-[30px] h-[30px] bg-white rounded-full transition-transform peer-checked:translate-x-[54px] flex items-center justify-center">
+                <Image src={sun} alt="Sun" width={20} height={20} />
+              </div>
             </label>
           </div>
         </div>
@@ -111,56 +78,31 @@ const Navbar = () => {
       {/* Mobile Dropdown Menu */}
       {isOpen && (
         <div className="md:hidden mt-3 space-y-3">
-          <Link
-            href="/"
-            className="block text-gray-600 hover:text-blue-500 font-medium"
-          >
-            Home
-          </Link>
-          <Link
-            href="/events"
-            className="block text-gray-600 hover:text-blue-500 font-medium"
-          >
-            Events
-          </Link>
-          <Link
-            href="/team"
-            className="block text-gray-600 hover:text-blue-500 font-medium"
-          >
-            Team
-          </Link>
-          <Link
-            href="/alumni"
-            className="block text-gray-600 hover:text-blue-500 font-medium"
-          >
-            Alumni
-          </Link>
-          <Link
-            href="/contact"
-            className="block text-gray-600 hover:text-blue-500 font-medium"
-          >
-            Contact
-          </Link>
+          {["Home", "Events", "Team", "Alumni", "Contact"].map((link) => (
+            <Link
+              key={link}
+              href={link === "Home" ? "/" : `/${link.toLowerCase()}`}
+              className="block text-gray-600 hover:text-blue-500 font-medium"
+            >
+              {link}
+            </Link>
+          ))}
 
           {/* Toggle Switch */}
-          <div className="flex items-center">
-            <label
-              htmlFor="switch-mobile"
-              className="relative inline-flex items-center cursor-pointer"
-            >
+          <div className="mt-2">
+            <label className="relative inline-flex items-center cursor-pointer">
               <input
                 type="checkbox"
-                id="switch-mobile"
                 className="sr-only peer"
                 checked={isToggled}
                 onChange={toggleSwitch}
               />
-              <div
-                className="relative w-11 h-6 bg-gray-200 rounded-full peer
-                peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-[2px] after:left-[2px] 
-                after:bg-white after:border-gray-300 after:border after:rounded-full 
-                after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"
-              ></div>
+              {/* Background */}
+              <div className="w-20 h-10 bg-gray-300 rounded-full transition-colors peer-checked:bg-blue-600"></div>
+              {/* Circle */}
+              <div className="absolute top-[2px] left-[2px] w-9 h-9 bg-white rounded-full transition-transform peer-checked:translate-x-10 flex items-center justify-center">
+                <Image src={sun} alt="Sun" width={20} height={20} />
+              </div>
             </label>
           </div>
         </div>
