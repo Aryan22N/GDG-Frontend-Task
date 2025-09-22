@@ -10,7 +10,7 @@ const stats = [
 
 export default function GDGStats() {
   return (
-    <section className="py-16  bg-white text-center">
+    <section className="py-20   bg-white text-center">
       <div className="flex max-w-[1080px] mx-auto flex-wrap justify-center gap-20">
         {stats.map((stat, index) => (
           <div key={index} className="flex flex-col items-center">

@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import FAQ from "../components/Faq";
 import Technologies from "../components/Technologies";
 import Stats from "../components/Stats";
+import Keepsus from "../components/Whatkeep";
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
       <Hero />
       <Ourmission />
       <Ourperspective />
-      <Ourmission />
+      <Keepsus />
       <Stats />
       <Technologies />
       <FAQ />

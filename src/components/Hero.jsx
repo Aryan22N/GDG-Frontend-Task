@@ -8,7 +8,7 @@ import DownArrow2 from "@/images/V2.png";
 
 const Hero = () => {
   return (
-    <section className="flex flex-col items-center justify-center text-center px-4 py-12 bg-white gap-[30px]">
+    <section className="flex flex-col  items-center justify-center text-center px-4 py-28 bg-white gap-[30px]">
       {/* Title */}
       <div className="flex flex-col items-center gap-0.1">
         <h1 className="text-[84.99px] font-bold leading-snug text-black font-Product Sans">
