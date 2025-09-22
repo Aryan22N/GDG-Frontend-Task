@@ -49,7 +49,7 @@ export default function Technologies() {
         {technologies.map((tech, index) => (
           <div
             key={index}
-            className={`relative w-full sm:w-[350px] md:w-[446px] h-[320px] rounded-xl flex flex-col items-center justify-center transition-transform duration-500 hover:scale-105 ${
+            className={`relative w-full sm:w-[350px] md:w-[406px] h-[320px] rounded-xl flex flex-col items-center justify-center transition-transform duration-500 hover:scale-105 ${
               resolvedTheme === "dark"
                 ? "bg-gray-800 shadow-2xl shadow-gray-700"
                 : "bg-white shadow-2xl shadow-gray-700"
