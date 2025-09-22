@@ -1,38 +1,46 @@
 "use client";
 import Image from "next/image";
+import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 import DownArrow from "../images/V.png";
 import androidImg from "../images/android.png";
 import flutterImg from "../images/flutter.png";
 import cloudImg from "../images/cloud.png";
 
 const technologies = [
-  {
-    name: "Android",
-    img: androidImg,
-    color: "bg-red-400",
-  },
-  {
-    name: "Flutter",
-    img: flutterImg,
-    color: "bg-blue-400",
-  },
-  {
-    name: "Cloud",
-    img: cloudImg,
-    color: "bg-green-400",
-  },
+  { name: "Android", img: androidImg, color: "bg-red-400" },
+  { name: "Flutter", img: flutterImg, color: "bg-blue-400" },
+  { name: "Cloud", img: cloudImg, color: "bg-green-400" },
 ];
 
 export default function Technologies() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
   return (
-    <section className="py-16 text-center bg-white px-4 sm:px-6 lg:px-16">
+    <section
+      className={`py-16 text-center px-4 sm:px-6 lg:px-16 transition-colors duration-500 ${
+        resolvedTheme === "dark" ? "bg-gray-900" : "bg-white"
+      }`}
+    >
       {/* Heading */}
-      <h2 className="text-[40px] sm:text-[55px] md:text-[70px] font-bold max-w-[1380px] mx-auto text-[#5F5F5F] flex items-center justify-center gap-4 flex-wrap">
+      <h2
+        className={`text-[40px] sm:text-[55px] md:text-[70px] font-bold max-w-[1380px] mx-auto flex items-center justify-center gap-4 flex-wrap transition-colors duration-500 ${
+          resolvedTheme === "dark" ? "text-gray-200" : "text-[#5F5F5F]"
+        }`}
+      >
         <span className="flex-1 h-[4px] sm:h-[5px] md:h-[6px] rounded-full bg-red-500"></span>
         Technologies
         <span className="flex-1 h-[4px] sm:h-[5px] md:h-[6px] rounded-full bg-red-500"></span>
       </h2>
-      <p className="text-gray-500 text-[18px] sm:text-[24px] md:text-[32px] mt-2 max-w-[900px] mx-auto">
+      <p
+        className={`text-[18px] sm:text-[24px] md:text-[32px] mt-2 max-w-[900px] mx-auto transition-colors duration-500 ${
+          resolvedTheme === "dark" ? "text-gray-400" : "text-gray-500"
+        }`}
+      >
         Domains That Excite Us to Collaborate and Teach!
       </p>
 
@@ -41,7 +49,11 @@ export default function Technologies() {
         {technologies.map((tech, index) => (
           <div
             key={index}
-            className="relative w-full sm:w-[350px] md:w-[446px] h-[320px] rounded-xl shadow-2xl shadow-gray-700 bg-white flex flex-col items-center justify-center transition-transform duration-500 hover:scale-105"
+            className={`relative w-full sm:w-[350px] md:w-[446px] h-[320px] rounded-xl flex flex-col items-center justify-center transition-transform duration-500 hover:scale-105 ${
+              resolvedTheme === "dark"
+                ? "bg-gray-800 shadow-2xl shadow-gray-700"
+                : "bg-white shadow-2xl shadow-gray-700"
+            }`}
           >
             {/* Top colored line */}
             <div
@@ -58,7 +70,11 @@ export default function Technologies() {
             />
 
             {/* Text */}
-            <h3 className="text-[24px] sm:text-[32px] md:text-[40px] font-medium text-[#5F5F5F]">
+            <h3
+              className={`text-[24px] sm:text-[32px] md:text-[40px] font-medium transition-colors duration-500 ${
+                resolvedTheme === "dark" ? "text-gray-200" : "text-[#5F5F5F]"
+              }`}
+            >
               {tech.name}
             </h3>
 
